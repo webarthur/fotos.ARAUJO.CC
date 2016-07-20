@@ -1,0 +1,14 @@
+
+- home
+- ajax
+- gulp thumbs
+- htaccess
+- analytics
+
+[deploy]
+- github/deploy 
+- share test
+- disqus
+
+[future]
+- search

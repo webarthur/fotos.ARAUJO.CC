@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>@page.title - @app.name</title>
+@include('./_metas.html')
+</head>
+
+@include('./_header.html')
+	<article>
+		
+		<div layout="black relative h-padding-40">
+			<a class="arrows">&#10092;</a>
+			<div layout="block center max-1200">
+				<img id="picture" src="azul-reflexivo/8693728641_de0998735d_o2.jpg" style="max-width:100%" />
+			</div>
+			<a class="arrows">&#10093;</a>
+		</div>
+	
+		<div layout="max-1200 center table full-height white" onnetbook="inline-block">
+			<div cols="7" layout="table-cell full-height" onnetbook="full-width">
+				<div layout="left-20 top-20" class="responsive-right-padding">
+					
+					<h1 text="1.8em normal" layout="no-margin">
+						@page.title
+					</h1>
+					
+					<menu layout="no-padding v-margin-20" links="fadeIn pointer"></menu>
+					
+					@page.content
+				</div>
+				<div layout="padding-30" onnetbook="hidden"></div>
+			</div>
+			
+			<div cols="1" onnetbook="full-width">&nbsp;</div>
+			
+			<aside cols="4" layout="gray-10 table-cell full-height" onnetbook="full-width">
+				<div layout="margin-20 h-padding-10">
+					<p text="1.3em" layout="v-margin-10">
+						<img src="@page.author.avatar" width="60" text="middle" layout="circle right-10" />
+						@page.author.name
+					</p>
+					<p layout="v-margin-10">
+						<time text=".9em" datetime="@page.datetime">13 janeiro 2016, @page.region</time>
+					</p>
+					<p id="tags" layout="v-margin-10">
+						@page.tags
+					</p>
+				</div>
+				<div id="metas" text=".7em line-1.25" layout="flex gray-20 padding-5"></div>
+			</aside>
+			
+		</div>
+	</article>
+	
+@include('./_footer.html')
+</html>

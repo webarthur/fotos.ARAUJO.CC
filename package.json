@@ -1,0 +1,34 @@
+{
+  "name": "fotos.ARAUJO.CC",
+  "version": "1.0.0",
+  "description": "My personal photography database",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "glob": "^7.0.5",
+    "gulp": "^3.9.1",
+    "gulp-file-include": "^0.13.7",
+    "gulp-rename": "^1.2.2",
+    "marked": "^0.3.5",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webarthur/fotos.araujo.cc.git"
+  },
+  "keywords": [
+    "fotografia",
+    "personal",
+    "flickr",
+    "instagram"
+  ],
+  "author": "Arthur Araújo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webarthur/fotos.araujo.cc/issues"
+  },
+  "homepage": "https://github.com/webarthur/fotos.araujo.cc#readme"
+}

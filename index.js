@@ -1,0 +1,1 @@
+var index = [{"title":"Azul Reflexivo 2","slug":"azul-reflexivo","image":"8693728641_de0998735d_o2.jpg","datetime":"2012-10-01 17:31:37","tags":"praia, litoral, porto seguro"}]
