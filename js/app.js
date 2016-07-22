@@ -1,5 +1,5 @@
 
-var is_production = (document.location.hostname == "localhost")
+var is_production = (document.location.hostname != "localhost")
 
 $e = function (e) { return document.getElementById(e) }
 $s = function (q) { return document.querySelector(q) }
