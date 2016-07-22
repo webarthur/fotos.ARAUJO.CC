@@ -1,4 +1,6 @@
 
+var is_production = (document.location.hostname == "localhost")
+
 $e = function (e) { return document.getElementById(e) }
 $s = function (q) { return document.querySelector(q) }
 
@@ -83,6 +85,16 @@ var app = {
 			})
 			
 			gallery.innerHTML = html
+		}
+		
+		// analytics
+		if( is_production ) {
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-1871974-20', 'auto');
+			ga('send', 'pageview');
 		}
 	}, 
 	

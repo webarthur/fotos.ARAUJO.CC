@@ -1,14 +1,12 @@
 
 - home
-- ajax
-- gulp thumbs
-- htaccess
-- analytics
+- share mesage
+- dates
+- ajax / article navigation
+- resize large images
+- rename image using md5 or something like
 
 [deploy]
-- github/deploy 
 - share test
 - disqus
-
-[future]
 - search

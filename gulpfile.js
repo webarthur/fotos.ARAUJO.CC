@@ -1,17 +1,27 @@
-var fileinclude = require('gulp-file-include')
-  , gulp = require('gulp')
+
+/*
+ * Remember to install: 
+ * sudo apt-get install imagemagick graphicsmagick
+ * 
+ */
+
+var fs = require('fs')
   , path = require('path')
-  , rename = require("gulp-rename")
-  , fs = require('fs')
+  , gulp = require('gulp')
   , glob = require('glob')
   , marked = require('marked')
+	, fileinclude = require('gulp-file-include')
+  , imageResize = require('gulp-image-resize')
+  , rename = require("gulp-rename")
+  , app = require('./package.json')
+  
+var theme = './themes/eva00/'
+	, thumb_w = 500
+	, thumb_h = 304
   , page = {}
   , md = ''
   , filename = ''
   , index = []
-  , theme = './themes/eva00/'
-  
-var app = require('./package.json')
 
 gulp.task('default', function() {
 	
@@ -38,7 +48,8 @@ gulp.task('default', function() {
    // if is path
     if (fs.statSync(filePath).isDirectory()) {
 			
-			var filedata = filePath+'/data.json'
+			var filedata  = filePath+'/data.json'
+			var thumbnail = filePath+'/thumb.jpg'
 			
 			// if data.json exists
 			if(fs.existsSync(filedata)) {
@@ -48,11 +59,12 @@ gulp.task('default', function() {
 					
 					// get article data
 					page = JSON.parse(fs.readFileSync(filedata))
+					page.slug = path.basename(filePath)
 					
 					// push index
 					index.push({
 						title: page.title
-						, slug: path.basename(filePath)
+						, slug: page.slug
 						, image: page.image
 						, datetime: page.datetime
 						, tags: page.tags
@@ -80,6 +92,21 @@ gulp.task('default', function() {
 				catch(err) {
 					console.log('ERRO! Impossível ler '+filedata, err);
 				}
+				
+				// if thumbnail exists
+				if(!fs.existsSync(thumbnail)) {
+					gulp.src('./'+page.slug+'/'+page.image)
+						.pipe(imageResize({ 
+							width : thumb_w,
+							height : thumb_h,
+							format : 'jpeg'
+						}))
+						.pipe(rename('thumb.jpg'))
+						.pipe(gulp.dest('./'+page.slug+'/'))
+					
+					console.log('  -> thumbnail generated for '+page.image+'!');
+				}
+				
 			}
 			
     }
@@ -88,9 +115,9 @@ gulp.task('default', function() {
   // sort index
   index.sort(function (a,b) {
 		if (a.datetime < b.datetime)
-			return -1;
-		if (a.datetime > b.datetime)
 			return 1;
+		if (a.datetime > b.datetime)
+			return -1;
 		return 0;
 	});
   

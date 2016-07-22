@@ -11,7 +11,7 @@
 		<div layout="black relative h-padding-40">
 			<a class="arrows">&#10092;</a>
 			<div layout="block center max-1200">
-				<img id="picture" src="azul-reflexivo/8693728641_de0998735d_o2.jpg" style="max-width:100%" />
+				<img id="picture" src="@page.slug/@page.image" style="max-width:100%" />
 			</div>
 			<a class="arrows">&#10093;</a>
 		</div>
@@ -40,7 +40,7 @@
 						@page.author.name
 					</p>
 					<p layout="v-margin-10">
-						<time text=".9em" datetime="@page.datetime">13 janeiro 2016, @page.region</time>
+						<time text=".9em" datetime="@page.datetime">@page.datetime, @page.region</time>
 					</p>
 					<p id="tags" layout="v-margin-10">
 						@page.tags
